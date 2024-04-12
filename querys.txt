@@ -1,0 +1,21 @@
+CREATE (u1:Usuario {Nombre: 'Alice', ID_Usuario: '1', Correo_Electronico: 'alice@email.com', Fecha_Creacion: date(), Password: 'passwordAlice', Es_Verificado: false});
+CREATE (u2:Usuario {Nombre: 'Bob', ID_Usuario: '2', Correo_Electronico: 'bob@email.com', Fecha_Creacion: date(), Password: 'passwordBob', Es_Verificado: false});
+CREATE (p1:Publicacion {ID_Publicacion: '1', Contenido: 'Mi primera publicación', Fecha_Publicacion: datetime(), Numero_Likes: 0, Tiene_Media: false});
+CREATE (p2:Publicacion {ID_Publicacion: '2', Contenido: '¡Hola Mundo!', Fecha_Publicacion: datetime(), Numero_Likes: 0, Tiene_Media: true});
+CREATE (c1:Comentario {ID_Comentario: '1', Contenido: '¡Gran publicación!', Fecha_Comentario: datetime()});
+CREATE (m1:Medio {ID_Medio: '1', Tipo_Medio: 'imagen', URL: 'http://example.com/imagen.jpg', Fecha_Subida: date()});
+CREATE (h1:Hashtag {Texto: '#PrimeraPublicacion', Numero_Menciones: 1, Fecha_Primer_Uso: date(), Fecha_Ultimo_Uso: date()});
+MATCH (u:Usuario), (p:Publicacion) WHERE u.ID_Usuario = '1' AND p.ID_Publicacion = '1'
+CREATE (u)-[:PUBLICA]->(p);
+MATCH (u:Usuario), (p:Publicacion) WHERE u.ID_Usuario = '2' AND p.ID_Publicacion = '1'
+CREATE (u)-[:COMENTA]->(p);
+MATCH (u:Usuario), (p:Publicacion) WHERE u.ID_Usuario = '2' AND p.ID_Publicacion = '1'
+CREATE (u)-[:LE_GUSTA]->(p);
+MATCH (c:Comentario), (p:Publicacion) WHERE c.ID_Comentario = '1' AND p.ID_Publicacion = '1'
+CREATE (c)-[:ASOCIADO_A]->(p);
+MATCH (u1:Usuario), (u2:Usuario) WHERE u1.ID_Usuario = '1' AND u2.ID_Usuario = '2'
+CREATE (u1)-[:SIGUE]->(u2);
+MATCH (p:Publicacion), (m:Medio) WHERE p.ID_Publicacion = '2' AND m.ID_Medio = '1'
+CREATE (p)-[:INCLUYE]->(m);
+MATCH (p:Publicacion), (h:Hashtag) WHERE p.ID_Publicacion = '1' AND h.Texto = '#PrimeraPublicacion'
+CREATE (p)-[:CONTIENE]->(h);
