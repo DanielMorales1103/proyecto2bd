@@ -5,6 +5,7 @@ import imagenTwitter from '../../images/twitter-logo.jpg'
 const LoginPage = ({ onLoginSuccess }) => {
   const [useremail, setUseremail] = useState('');
   const [password, setPassword] = useState('');
+  const [isActive, setIsActive] = useState(false);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -20,15 +21,21 @@ const LoginPage = ({ onLoginSuccess }) => {
       alert("Usuario o contraseña incorrectos");
     }
   };
+  const handleAccount = (e) =>{
+
+  };
+  const handleToggle = () => {
+    setIsActive(!isActive);
+  };
 
   return (
     <div className='container'>
         <div className='container-mid'>
-          <div class="contenedor">
-            <div class="imagen">
+          <div className="contenedor">
+            <div className="imagen">
               <img src={imagenTwitter} alt="Descripción de la imagen"/>
             </div>
-            <div class="texto">
+            <div className="texto">
               Login
             </div>
           </div>
@@ -36,25 +43,50 @@ const LoginPage = ({ onLoginSuccess }) => {
         <div className='container-mid'>     
           <div className="login-container">    
             <div className="forms-containter">
-              <form onSubmit={handleLogin} className="login-form">
-                <h2>Login</h2>
-                <input
-                  type="text"
-                  placeholder="useremail"
-                  className="login-input"
-                  value={useremail}
-                  onChange={(e) => setUseremail(e.target.value)}
-                />
-                <input
-                  type="password"
-                  placeholder="Password"
-                  className="login-input"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-                <button type="submit" className="login-button">Login</button>
-              </form>
-                <button type="submit" className="register-button">Create Account</button>
+              {isActive ? (
+                  <form onSubmit={handleLogin} className="login-form">
+                  <h2>Login</h2>
+                  <input
+                    type="text"
+                    placeholder="user email"
+                    className="login-input"
+                    value={useremail}
+                    onChange={(e) => setUseremail(e.target.value)}/>
+                  <input
+                    type="password"
+                    placeholder="Password"
+                    className="login-input"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}/>
+                  <button type="submit" className="login-button">Login</button>
+                </form>
+                ) : 
+              (
+                <form onSubmit={handleAccount} className="login-form">
+                  <h2>Create Account</h2>
+                  <input
+                    type="text"
+                    placeholder="user name"
+                    className="login-input"/>
+                  <input
+                    type="text"
+                    placeholder="user email"
+                    className="login-input"/>
+                  <input
+                    type="password"
+                    placeholder="Password"
+                    className="login-input"/>
+                  <button type="submit" className="login-button">Login</button>
+                </form>
+              )}
+              <div className="switch">
+                <button 
+                  onClick={handleToggle} 
+                  className={`change-button ${isActive ? 'active' : ''}`}>
+                  {isActive ?  'Create Account':'Login'}
+                </button>
+              </div>
+                
             </div> 
           </div>         
         </div>
