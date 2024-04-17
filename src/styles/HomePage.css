@@ -1,0 +1,55 @@
+.menu-item {
+    padding: 8px;
+    cursor: pointer;
+    border-Radius: 5px;
+    background-Color: #ADD8E6;
+    margin-Bottom: 5px;
+  }
+  
+  .menu-item:hover {
+    background-color: #B0E0E6; 
+  }
+  
+  .active {
+    background-color: #00688B; 
+  }
+  .imagen-user{
+    margin-top: 2em;
+    margin-bottom: 4em;
+  }
+  .imagen-user img{
+    width: 5em; 
+    height: 5em;
+    border-radius: 50%; 
+    overflow: hidden;
+  }
+  .cerrar-sesion {
+    background: none;
+    border: none;
+    color: black;
+    cursor: pointer;
+    display: flex;
+    align-items: center; 
+    gap: 1em;
+  }
+  
+  .cerrar-sesion:hover {
+    color: #3198ff; 
+  }
+  
+  .cerrar-sesion img {
+    width: 20px; 
+    height: 20px; 
+    margin-right: 5px; 
+  }
+
+  .home-all-container{
+    height: 90%;
+    overflow-y: auto;
+    background-color: rgb(24, 24, 24);
+    padding: 1em;
+  }
+  .home-all-container::-webkit-scrollbar {
+    display: none;
+  }
+  

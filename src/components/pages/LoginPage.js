@@ -5,7 +5,7 @@ import imagenTwitter from '../../images/twitter-logo.jpg'
 const LoginPage = ({ onLoginSuccess }) => {
   const [useremail, setUseremail] = useState('');
   const [password, setPassword] = useState('');
-  const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState(true);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -33,10 +33,10 @@ const LoginPage = ({ onLoginSuccess }) => {
         <div className='container-mid'>
           <div className="contenedor">
             <div className="imagen">
-              <img src={imagenTwitter} alt="Descripción de la imagen"/>
+              <img src={imagenTwitter} alt="icon-twitter"/>
             </div>
             <div className="texto">
-              Login
+              Twitter
             </div>
           </div>
         </div>

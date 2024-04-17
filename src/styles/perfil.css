@@ -1,0 +1,93 @@
+.profile-container {
+    border: 1px solid white;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+  }
+  
+  .profile-header {
+    display: flex;
+    align-items: center;
+  }
+  
+  .profile-image, .user-image {
+    border-radius: 50%;
+  }
+  
+  .profile-image {
+    width: 10em;
+    height: 10em;
+    margin-right: 2em;
+  }
+  
+  .user-image {
+    width: 4em;
+    height: 4em;
+    margin-right: 10px;
+  }
+  
+  .user-list-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    border: 1px solid white;
+    border-radius: 8px;
+  }
+  
+  .profile-nav button {
+    margin-right: 10px;
+    padding: 10px;
+    border: none;
+    background-color: transparent;
+    color: #fff; 
+    cursor: pointer;
+  }
+  
+  .profile-nav .active {
+    border-bottom: 2px solid #1DA1F2; 
+  }
+  
+  .profile-content {
+    margin-top: 20px;
+    overflow-y: auto;
+    max-height: 400px;
+  }
+  .profile-content::-webkit-scrollbar {
+    display: none; 
+  }
+  
+  .edit-button {
+    margin-left: auto; 
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+  }
+  .follow-button {
+    font-size: 16px;
+    width: 32px; 
+    height: 32px; 
+    line-height: 32px; 
+    text-align: center; 
+    margin-left: auto; 
+    border: 2px solid #fff; 
+    border-radius: 50%; 
+    cursor: pointer;
+    color: #fff; 
+    background: transparent; 
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+  }
+  
+  .user-info{
+    display: flex;
+    flex-direction: column;
+  }
+  .name-user-info{
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+  }
+  
